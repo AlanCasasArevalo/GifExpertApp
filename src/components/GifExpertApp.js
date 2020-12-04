@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import CategoryAdd from "./CategoryAdd";
 
 const GifExpertApp = () => {
 
@@ -13,9 +14,8 @@ const GifExpertApp = () => {
     return (
         <>
             <h1>GifExpertApp</h1>
+            <CategoryAdd />
             <hr/>
-
-            <button onClick={ handleAdd }>Agregar un nueva serie</button>
 
             <ol>
                 {

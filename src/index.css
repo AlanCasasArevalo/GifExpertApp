@@ -6,4 +6,8 @@ body {
     padding: 60px;
 }
 
-
+input {
+    font-size: 1.3rem;
+    width: 100%;
+    color: darkblue;
+}
