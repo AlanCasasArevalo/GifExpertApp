@@ -1,16 +1,22 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 const GifGrid = ({category}) => {
-    // const [inputValue, setInputValue] = useState('')
+
+    const [images, setImages] = useState([])
+
+    // Esto sirve para poder llamar a la funcion de obtener los gifs pero solo la primera vez que se ejecuta el componente
+    useEffect(() => {
+        getGifs()
+    }, [])
 
     const getGifs = async () => {
-        const apiKey = 'irpbY8APMlGjv0zXNFjdWqDFsvoCiruB';
+        const apiKey = 'YOUR_API_KEY';
         const urlToCall = `http://api.giphy.com/v1/gifs/search?q=${category}&limit=10&api_key=${apiKey}`
         const resp = await fetch(urlToCall);
-        const { data } = await resp.json();
+        const {data} = await resp.json();
 
-        const gifs = data.map( image => {
+        const gifs = data.map(image => {
             return {
                 id: image.id,
                 title: image.title,
@@ -18,27 +24,19 @@ const GifGrid = ({category}) => {
             }
         })
 
-        console.log(``, data)
+        console.log(gifs)
 
-    }
-
-    getGifs()
-
-    const handleInputValueChange = (e) => {
-        // setInputValue(e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-        // e.preventDefault()
-        // if (inputValue.trim().length > 2) {
-        //     setCategories(categories => [...categories, inputValue])
-        //     setInputValue('')
-        // }
+        setImages(gifs)
     }
 
     return (
         <>
             <h3>{category}</h3>
+            {
+                images.map(({id, title}) =>
+                    (<li key={id}> {title} </li>)
+                )
+            }
         </>
     )
 }
