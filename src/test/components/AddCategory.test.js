@@ -4,14 +4,15 @@ import AddCategory from "../../components/AddCategory";
 
 describe('AddCategory Component test', () => {
 
-    const setCategories = () => {
-    }
+    const setCategories = jest.fn()
+
     let wrapper = shallow(
         <AddCategory
             setCategories={setCategories}
         />)
 
     beforeEach(() => {
+        jest.clearAllMocks()
         wrapper = shallow(
             <AddCategory
                 setCategories={setCategories}
@@ -55,6 +56,58 @@ describe('AddCategory Component test', () => {
         expect(value).toBe(valueMock)
     })
 
+    test('input should NOT post information on submit', () => {
+        const form = wrapper.find('form').simulate('submit', {
+            preventDefault(){}
+        })
+
+        expect(setCategories).not.toHaveBeenCalled()
+        expect(setCategories).toHaveBeenCalledTimes(0)
+    })
+
+    test('input should NOT post information on submit if input have less than 2 characters', () => {
+        const input = wrapper.find('input')
+
+        // Esto simularia el valor cambiado de la caja de texto
+        const valueMock = 'Ho'
+        input.simulate('change', {
+            target: {
+                value: valueMock
+            }
+        })
+
+        const form = wrapper.find('form').simulate('submit', {
+            preventDefault(){}
+        })
+
+        expect(setCategories).not.toHaveBeenCalled()
+        expect(setCategories).toHaveBeenCalledTimes(0)
+
+    })
+
+    test('input should post information on submit if input have more than 2 characters', () => {
+        const input = wrapper.find('input')
+
+        // Esto simularia el valor cambiado de la caja de texto
+        const valueMock = 'Hol'
+        input.simulate('change', {
+            target: {
+                value: valueMock
+            }
+        })
+
+        const form = wrapper.find('form').simulate('submit', {
+            preventDefault(){}
+        })
+        expect(setCategories).toHaveBeenCalled()
+        expect(setCategories).toHaveBeenCalledWith(expect.any(Function))
+        expect(setCategories).toHaveBeenCalledTimes(1)
+
+        const inputAfter = wrapper.find("input")
+        const { value } = inputAfter.props()
+        expect(value).toBe('')
+
+    })
 })
 
 
