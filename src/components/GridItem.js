@@ -1,6 +1,5 @@
 import React from 'react'
 
-// const GridItem = ({category}) => {
 const GridItem = ({id, title, url}) => {
 
     // Animation came from https://animate.style/
