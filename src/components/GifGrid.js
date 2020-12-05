@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import GridItem from "./GridItem";
+import {getGifs} from "../helpers/get-gifs";
 
 const GifGrid = ({category}) => {
 
@@ -8,32 +9,16 @@ const GifGrid = ({category}) => {
 
     // Esto sirve para poder llamar a la funcion de obtener los gifs pero solo la primera vez que se ejecuta el componente
     useEffect(() => {
-        getGifs()
-    }, [])
+        getGifs(category)
+            .then( setImages )
+    }, [category])
 
-    const getGifs = async () => {
-        const apiKey = 'YOUR_API_KEY';
-        const urlToCall = `http://api.giphy.com/v1/gifs/search?q=${category}&limit=10&api_key=${apiKey}`
-        const resp = await fetch(urlToCall);
-        const {data} = await resp.json();
 
-        const gifs = data.map(image => {
-            return {
-                id: image.id,
-                title: image.title,
-                url: image.images?.downsized_medium.url
-            }
-        })
-
-        console.log(gifs)
-
-        setImages(gifs)
-    }
 
     return (
         <>
             <h3>{category}</h3>
-            <dic className="card-grid">
+            <div className="card-grid">
                 {
                     images.map((image) =>
                         (
@@ -44,7 +29,7 @@ const GifGrid = ({category}) => {
                         )
                     )
                 }
-            </dic>
+            </div>
         </>
     )
 }
