@@ -8,10 +8,52 @@ exports[`GifGrid Component test GifGrid should return a snapshot 1`] = `
     Hola
   </h3>
   <p>
-    'Cargando ....'
+    Cargando ....
   </p>
   <div
     className="card-grid"
   />
+</Fragment>
+`;
+
+exports[`GifGrid Component test GifGrid should show correctly 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__flash"
+  >
+    Hola
+  </h3>
+  <p>
+    Cargando ....
+  </p>
+  <div
+    className="card-grid"
+  />
+</Fragment>
+`;
+
+exports[`GifGrid Component test should show items when images were returned by useFetchGifs 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__flash"
+  >
+    Hola
+  </h3>
+  <div
+    className="card-grid"
+  >
+    <GridItem
+      id="Zb0asRm15HqCbgShD4"
+      key="Zb0asRm15HqCbgShD4"
+      title="elder scrolls dragon GIF by Bethesda"
+      url="https://media1.giphy.com/media/Zb0asRm15HqCbgShD4/giphy.gif?cid=424d35b9tshdcac1j64zn4mu9d8rt79xt1m6ptas93ob0xg0&rid=giphy.gif"
+    />
+    <GridItem
+      id="Zb0asRm15HqCbgShD4"
+      key="Zb0asRm15HqCbgShD4"
+      title="elder scrolls dragon GIF by Bethesda"
+      url="https://media1.giphy.com/media/Zb0asRm15HqCbgShD4/giphy.gif?cid=424d35b9tshdcac1j64zn4mu9d8rt79xt1m6ptas93ob0xg0&rid=giphy.gif"
+    />
+  </div>
 </Fragment>
 `;

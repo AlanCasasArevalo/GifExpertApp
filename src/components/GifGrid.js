@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {useFetchGifs} from "../hoooks/useFetchGifs";
+import {useFetchGifs} from "../hooks/useFetchGifs";
 import GridItem from "./GridItem";
 
 const GifGrid = ({category}) => {
@@ -11,7 +11,7 @@ const GifGrid = ({category}) => {
         <>
             <h3 className="animate__animated animate__flash">{category}</h3>
 
-            {loading && <p>'Cargando ....'</p>}
+            {loading && <p>Cargando ....</p>}
 
             <div className="card-grid">
                 {
