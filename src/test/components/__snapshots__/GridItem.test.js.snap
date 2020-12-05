@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridItem Component test GridItem should return a snapshot 1`] = `
+<div
+  className="card animate__animated animate__flash"
+>
+  <img
+    alt="Hola, soy Alan"
+    src="http://localhost:3000/image"
+  />
+  <p>
+    Hola, soy Alan
+  </p>
+</div>
+`;

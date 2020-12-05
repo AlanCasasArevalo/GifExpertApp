@@ -49,4 +49,11 @@ describe('GridItem Component test', () => {
         const {className, children} = div.props()
         expect(className).toStrictEqual('card animate__animated animate__flash')
     })
+
+    test('div should get image and p', () => {
+        const div = wrapper.find('div')
+        const {className, children} = div.props()
+        expect(children[0].type).toStrictEqual('img')
+        expect(children[1].type).toStrictEqual('p')
+    })
 })
