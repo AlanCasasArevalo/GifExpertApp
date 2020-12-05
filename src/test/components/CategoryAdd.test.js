@@ -1,36 +1,48 @@
 import {shallow} from "enzyme";
 import React from "react";
-import CategoryAdd from "../../components/CategoryAdd";
+import AddCategory from "../../components/AddCategory";
 
-describe('CategoryAdd Component test', () => {
+describe('AddCategory Component test', () => {
 
     const setCategories = () => {
     }
     let wrapper = shallow(
-        <CategoryAdd
+        <AddCategory
             setCategories={setCategories}
         />)
 
     beforeEach(() => {
         wrapper = shallow(
-            <CategoryAdd
+            <AddCategory
                 setCategories={setCategories}
             />)
     })
 
-    test('CategoryAdd should be defined', () => {
-        expect(<CategoryAdd
+    test('AddCategory should be defined', () => {
+        expect(<AddCategory
             setCategories={setCategories}
         />).toBeDefined()
     })
-    test('CategoryAdd should be an object', () => {
-        expect(typeof <CategoryAdd
+    test('AddCategory should be an object', () => {
+        expect(typeof <AddCategory
             setCategories={setCategories}
         />).toBe('object')
     })
 
-    test('CategoryAdd should return a snapshot', () => {
+    test('AddCategory should return a snapshot', () => {
         expect(wrapper).toMatchSnapshot()
     })
 
+    test('form should get input', () => {
+        const form = wrapper.find('form')
+        const {children} = form.props()
+        expect(children.type).toStrictEqual('input')
+    })
+    
 })
+
+
+
+
+
+
