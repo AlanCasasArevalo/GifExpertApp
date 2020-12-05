@@ -49,6 +49,10 @@ describe('AddCategory Component test', () => {
                 value: valueMock
             }
         })
+
+        const inputAfter = wrapper.find("input")
+        const { value } = inputAfter.props()
+        expect(value).toBe(valueMock)
     })
 
 })
