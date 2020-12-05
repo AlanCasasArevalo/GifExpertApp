@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GifGrid Component test GifGrid should return a snapshot 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__flash"
+  >
+    Hola
+  </h3>
+  <p>
+    'Cargando ....'
+  </p>
+  <div
+    className="card-grid"
+  />
+</Fragment>
+`;

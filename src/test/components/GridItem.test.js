@@ -31,11 +31,11 @@ describe('GridItem Component test', () => {
     test('GridItem should return a snapshot', () => {
         expect(wrapper).toMatchSnapshot()
     })
-
     test('GridItem should return title by props', () => {
         const titleInP = wrapper.find('p').text(title)
         expect(title).toBe(titleInP)
     })
+
 
     test('GridItem should return url and title into image by props', () => {
         const image = wrapper.find('img')
