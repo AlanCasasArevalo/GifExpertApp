@@ -33,16 +33,18 @@ const GifGrid = ({category}) => {
     return (
         <>
             <h3>{category}</h3>
-            {
-                images.map((image) =>
-                    (
-                        <GridItem
-                            key={image.id}
-                            {...image}
-                        />
+            <dic className="card-grid">
+                {
+                    images.map((image) =>
+                        (
+                            <GridItem
+                                key={image.id}
+                                {...image}
+                            />
+                        )
                     )
-                )
-            }
+                }
+            </dic>
         </>
     )
 }
