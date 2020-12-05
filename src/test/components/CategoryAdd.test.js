@@ -38,7 +38,19 @@ describe('AddCategory Component test', () => {
         const {children} = form.props()
         expect(children.type).toStrictEqual('input')
     })
-    
+
+    test('input should change status if we change some character into it', () => {
+        const input = wrapper.find('input')
+
+        // Esto simularia el valor cambiado de la caja de texto
+        const valueMock = 'Hola Mundo'
+        input.simulate('change', {
+            target: {
+                value: valueMock
+            }
+        })
+    })
+
 })
 
 
