@@ -1,23 +1,18 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import {useFetchGifs} from "../hoooks/useFetchGifs";
 import GridItem from "./GridItem";
-import {getGifs} from "../helpers/get-gifs";
 
 const GifGrid = ({category}) => {
 
-    const [images, setImages] = useState([])
-
-    // Esto sirve para poder llamar a la funcion de obtener los gifs pero solo la primera vez que se ejecuta el componente
-    useEffect(() => {
-        getGifs(category)
-            .then( setImages )
-    }, [category])
-
-
+    const {data: images, loading} = useFetchGifs(category)
 
     return (
         <>
             <h3>{category}</h3>
+
+            {loading && <p>'Cargando ....'</p>}
+
             <div className="card-grid">
                 {
                     images.map((image) =>
