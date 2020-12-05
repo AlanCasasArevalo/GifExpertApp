@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
+import GridItem from "./GridItem";
 
 const GifGrid = ({category}) => {
 
@@ -33,8 +34,13 @@ const GifGrid = ({category}) => {
         <>
             <h3>{category}</h3>
             {
-                images.map(({id, title}) =>
-                    (<li key={id}> {title} </li>)
+                images.map((image) =>
+                    (
+                        <GridItem
+                            key={image.id}
+                            {...image}
+                        />
+                    )
                 )
             }
         </>
